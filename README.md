@@ -12,7 +12,7 @@
 - Run
 
 ```
-  npm run dev
+  npm run start
 ```
 
 ## Tools used
