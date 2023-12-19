@@ -1,0 +1,9 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import ProductsQueryProvider from "../components/products/ProductsQueryProvider";
+const { blok } = Astro.props;
+---
+
+<main {...storyblokEditable(blok)} class="min-h-[calc(100vh-80px)]">
+  <ProductsQueryProvider client:only />
+</main>

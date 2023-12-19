@@ -1,0 +1,48 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+const { blok } = Astro.props;
+---
+
+<main {...storyblokEditable(blok)}>
+  <div
+    class="overflow-x-hidden relative min-h-[calc(100vh-80px)] backgroundImage flex flex-row justify-start md:px-16 px-6"
+  >
+    <div class="my-auto w-full">
+      <h3
+        class="text-2xl
+      sm:text-4xl
+      lg:text-6xl
+      text-white
+      mb-4"
+      >
+        {blok.heading}
+      </h3>
+
+      <section class="animation text-md sm:text-2xl text-white">
+        <div class="first"><div>{blok.subheading}</div></div>
+        <div class="second"><div>{blok.subheading2}</div></div>
+        <div class="third"><div>{blok.subheading3}</div></div>
+      </section>
+    </div>
+
+    <div
+      class="flex flex-wrap flex-row gap-3 h-1/2 w-3/4 sm:w-auto my-auto items-center justify-end pe-6 md:pe-0 md:justify-end xl:justify-start"
+    >
+      {
+        blok.sliders.map((img) => {
+          return (
+            <>
+              <div class="overflow-hidden">
+                <img
+                  src={img.filename}
+                  class={`w-20 sm:w-28 sm:h-28 md:w-36 h-20 md:h-36 hover:scale-105 hover:opacity-70 transition-all duration-200 `}
+                />
+              </div>
+            </>
+          );
+        })
+      }
+      <h3 class="w-20 md:w-36 sm:w-28 text-white">{blok.last_text}</h3>
+    </div>
+  </div>
+</main>

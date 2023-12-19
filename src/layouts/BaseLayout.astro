@@ -1,0 +1,18 @@
+---
+import "../style.css";
+import { ViewTransitions } from "astro:transitions";
+---
+
+<html lang="en">
+  <head>
+    <ViewTransitions />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/public/favicon.ico" />
+
+    <title>Slash Task</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

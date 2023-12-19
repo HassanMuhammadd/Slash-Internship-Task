@@ -1,0 +1,48 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+---
+
+<main
+  {...storyblokEditable(blok)}
+  class="min-h-[calc(100vh-80px)] bg-stone-200 flex flex-col justify-center py-16 relative"
+>
+  <div
+    class="px-4 md:px-16 lg:px-32 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-16 place-items-center"
+  >
+    <div
+      class="img relative h-3/4 w-3/4 md:w-full md:h-full mx-auto hidden sm:block"
+    >
+      <img
+        src={blok.main_image.filename}
+        alt="about us"
+        class="object-contain w-full h-full mainImg"
+      />
+    </div>
+    <section
+      class="flex flex-col justify-start opacity-100 relative font-light"
+    >
+      <h2
+        class="text-3xl md:text-5xl lg:text-6xl font-bold uppercase opacity-90 about_heading"
+      >
+        {blok.heading}
+      </h2>
+      <p class="about_paragraph mt-8 mb-4">{blok.paragraph1}</p>
+      <p class="about_paragraph">{blok.paragraph2}</p>
+    </section>
+  </div>
+  <div
+    class="flex flex-row justify-center items-center gap-6 absolute left-1/2 bottom-4 -translate-x-1/2 -translate-y-1/2"
+  >
+    {
+      blok.icons.map((icon) => (
+        <img
+          src={icon.filename}
+          alt={icon.filename}
+          class="w-6 h-6 opacity-90 cursor-pointer"
+        />
+      ))
+    }
+  </div>
+</main>

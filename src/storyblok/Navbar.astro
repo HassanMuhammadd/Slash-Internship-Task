@@ -1,0 +1,31 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+const { blok } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<nav
+  {...storyblokEditable(blok)}
+  class="md:px-16 px-6 py-5 bg-black text-white flex flex-row justify-between items-center"
+>
+  <a
+    href="/"
+    class="text-4xl transition-all duration-50 hover:text-[var(--mainHeavy)]"
+  >
+    Slash</a
+  >
+  <div class="flex flex-row gap-3 sm:gap-6 items-center text-sm md:text-lg">
+    <a
+      href={blok.products.cached_url}
+      class={`transition-all duration-50 hover:text-[var(--mainHeavy)] ${
+        currentPath === "/products" && "text-[var(--mainHeavy)]"
+      }`}>Products</a
+    >
+    <a
+      href={blok.about.cached_url}
+      class={`transition-all duration-50 hover:text-[var(--mainHeavy)] ${
+        currentPath === "/about" && "text-[var(--mainHeavy)]"
+      }`}>About</a
+    >
+  </div>
+</nav>
